@@ -3,7 +3,7 @@ from tkinter import *
 from tkinter import messagebox
 window = Tk()
 window.title("Расчет накооплений")
-window.geometry("600x400")
+window.geometry("400x250")
 
 Deposit_label = Label(window, text="Параметры депозита")
 Deposit_label.grid(row=1, column=2, pady = 10)
