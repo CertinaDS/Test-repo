@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
 window = Tk()
-window.title("Расчет накооплений")
+window.title("Расчет накоплений")
 window.geometry("400x250")
 
 Deposit_label = Label(window, text="Параметры депозита")
