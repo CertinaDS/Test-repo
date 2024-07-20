@@ -2,7 +2,6 @@ import random
 def findIndex(sorted_num_list, number):
     first = 0
     last = len(sorted_num_list) - 1
-    answer = None
     while first <= last:
         middle = first + (last - first) // 2
         if sorted_num_list[middle] == number:
