@@ -1,12 +1,14 @@
 import json
 data = {
-'title': 'заголовок',
-'text': 'текст',
-'author': 'автор'
+'title': '1',
+'text': '2',
+'author': '3'
 }
-data_ = list(data.keys())
 class Model:
-    def Save(data_):
-	    with open("data_.json", "w") as file:
-		    json.dump(data_, file)
-    Save(data_)
+    value = []
+    def Save(value):
+        for k,v in data.items():
+            value.append(v)
+        with open("Value.json", "w") as file:
+            json.dump(value, file)
+    Save(value)
