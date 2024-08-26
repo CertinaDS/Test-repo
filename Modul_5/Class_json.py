@@ -7,8 +7,9 @@ data = {
 class Model:
     value = []
     def Save(value):
-        for k,v in data.items():
+        for v in data.values():
             value.append(v)
+        print(value)
         with open("Value.json", "w") as file:
             json.dump(value, file)
     Save(value)
