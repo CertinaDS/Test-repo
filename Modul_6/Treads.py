@@ -8,7 +8,13 @@ def get_html(link):
 		data = response.text
 		print(len(data))
 
-links = ['https://habr.com', 'https://ya.ru', 'https://ru.wikipedia.org', 'https://www.google.ru', 'https://github.com/CertinaDS/Test-repo']
+links = [
+	'https://habr.com',
+	'https://ya.ru',
+	'https://ru.wikipedia.org',
+	'https://www.google.ru',
+	'https://github.com/CertinaDS/Test-repo'
+]
 threads = [Thread(target=get_html(link), args=(link, )) for link in links]
 for t in threads:
 	t.start()
