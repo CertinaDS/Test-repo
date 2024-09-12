@@ -22,7 +22,7 @@ courses = [str(i).strip().replace('<table class="mfd-table mfd-currency-table">'
 courses = [i.strip().split('\n') for i in courses[0:-1]]
 
 df = pd.DataFrame(courses)
-df = df.drop([0,1])
+df = df.drop([0])
 df.columns = ['Дата', 'Курс', 'Изменение']
 print(df.to_markdown(tablefmt="grid", stralign='center'))
 
@@ -37,4 +37,5 @@ plt.ylabel('Курс')
 plt.plot(X_data, Y_rate, 'r')
 plt.title('Курс доллара')
 plt.xticks(rotation=90)
+plt.gca().invert_xaxis()
 plt.show()
