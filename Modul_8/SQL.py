@@ -8,6 +8,9 @@ cursor.executemany("INSERT INTO Students VALUES (?,?,?,?,?)", [(1, 'Max', 'Brook
 cursor.executemany("INSERT INTO Courses (id, name, time_start, time_end) VALUES (?,?,?,?)", [(1, 'python', '21.07.21', '21.08.21'), (2, 'java', '13.07.21', '16.08.21')])
 cursor.executemany("INSERT INTO Student_courses (student_id, course_id) VALUES (?,?)", [(1, 1), (2, 1), (3, 1), (4, 2)])
 
-cursor.execute("SELECT * FROM Students")
-print(cursor.fetchall())
+cursor.execute("SELECT name, surname FROM Students WHERE age > 30")
+print(f'Студенты старше 30 лет: \n{cursor.fetchall()}')
+cursor.execute("SELECT name, surname FROM Students WHERE city = 'Spb'")
+print(f'Студенты из Питера: \n{cursor.fetchall()}')
+
 cursor.close()
