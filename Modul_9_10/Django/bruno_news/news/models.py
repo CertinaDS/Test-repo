@@ -1,8 +1,9 @@
 from django.db import models
 
-class Author(models.Model):
-    name = models.CharField(max_length=100)
-    birth_date = models.DateField()
+class Article(models.Model):
+    title = models.CharField("Загаоловок новости", max_length=64, unique=True)
+    description = models.CharField("Описание новости", max_length=200)
+    text = models.TrField()
 
     def __str__(self):
         return self.name
