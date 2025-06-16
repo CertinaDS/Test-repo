@@ -1,0 +1,146 @@
+[
+  {
+    "model": "shop.product",
+    "pk": 1,
+    "fields": {
+      "name": "Грецкие орехи очищенные",
+      "description": "Отборные ядра грецкого ореха, 1 кг",
+      "price": "850.00",
+      "image": "products/walnuts.jpg",
+      "created_at": "2023-01-01T10:00:00Z",
+      "updated_at": "2023-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 2,
+    "fields": {
+      "name": "Миндаль сырой",
+      "description": "Натуральный калифорнийский миндаль, 1 кг",
+      "price": "1200.00",
+      "image": "products/almonds.jpg",
+      "created_at": "2023-01-01T10:00:00Z",
+      "updated_at": "2023-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 3,
+    "fields": {
+      "name": "Кешью жареный",
+      "description": "Жареный кешью с морской солью, 500 г",
+      "price": "750.00",
+      "image": "products/cashew.jpg",
+      "created_at": "2023-01-01T10:00:00Z",
+      "updated_at": "2023-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 4,
+    "fields": {
+      "name": "Фисташки солёные",
+      "description": "Жареные фисташки с солью, 500 г",
+      "price": "650.00",
+      "image": "products/pistachios.jpg",
+      "created_at": "2023-01-01T10:00:00Z",
+      "updated_at": "2023-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 5,
+    "fields": {
+      "name": "Фундук очищенный",
+      "description": "Ядра фундука высшего сорта, 1 кг",
+      "price": "950.00",
+      "image": "products/hazelnuts.jpg",
+      "created_at": "2023-01-01T10:00:00Z",
+      "updated_at": "2023-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 6,
+    "fields": {
+      "name": "Бразильский орех",
+      "description": "Натуральный бразильский орех, 500 г",
+      "price": "1100.00",
+      "image": "products/brazil_nuts.jpg",
+      "created_at": "2023-01-01T10:00:00Z",
+      "updated_at": "2023-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 7,
+    "fields": {
+      "name": "Пекан очищенный",
+      "description": "Свежие орехи пекан, 500 г",
+      "price": "1300.00",
+      "image": "products/pecans.jpg",
+      "created_at": "2023-01-01T10:00:00Z",
+      "updated_at": "2023-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 8,
+    "fields": {
+      "name": "Кедровые орехи",
+      "description": "Очищенные кедровые орехи, 200 г",
+      "price": "550.00",
+      "image": "products/pine_nuts.jpg",
+      "created_at": "2023-01-01T10:00:00Z",
+      "updated_at": "2023-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 9,
+    "fields": {
+      "name": "Арахис жареный",
+      "description": "Арахис в хрустящей корочке, 1 кг",
+      "price": "450.00",
+      "image": "products/peanuts.jpg",
+      "created_at": "2023-01-01T10:00:00Z",
+      "updated_at": "2023-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 10,
+    "fields": {
+      "name": "Финики королевские",
+      "description": "Сушёные финики без косточки, 1 кг",
+      "price": "600.00",
+      "image": "products/dates.jpg",
+      "created_at": "2023-01-01T10:00:00Z",
+      "updated_at": "2023-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 11,
+    "fields": {
+      "name": "Курага премиум",
+      "description": "Мягкая курага без обработки, 1 кг",
+      "price": "500.00",
+      "image": "products/apricots.jpg",
+      "created_at": "2023-01-01T10:00:00Z",
+      "updated_at": "2023-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 12,
+    "fields": {
+      "name": "Чернослив без косточки",
+      "description": "Крупный чернослив высшего сорта, 1 кг",
+      "price": "550.00",
+      "image": "products/prunes.jpg",
+      "created_at": "2023-01-01T10:00:00Z",
+      "updated_at": "2023-01-01T10:00:00Z"
+    }
+  }
+]
