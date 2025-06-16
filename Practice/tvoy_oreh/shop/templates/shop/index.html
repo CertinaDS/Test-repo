@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная - Твой орех{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Наши орехи и сухофрукты</h1>
+    
+    <div class="row">
+        {% for product in products %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.description|truncatechars:100 }}</p>
+                    <p class="text-success font-weight-bold">{{ product.price }} ₽/100г</p>
+                </div>
+                <div class="card-footer bg-white">
+                    <a href="{% url 'shop:product_detail' product.pk %}" class="btn btn-outline-primary">Подробнее</a>
+                    <button class="btn btn-primary add-to-cart" data-product-id="{{ product.id }}">
+                        <i class="fas fa-shopping-cart"></i> В корзину
+                    </button>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info">Товары временно отсутствуют</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Получаем CSRF-токен
+    function getCSRFToken() {
+        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]')?.value;
+        if (csrfToken) return csrfToken;
+
+        const cookieMatch = document.cookie.match(/csrftoken=([^;]+)/);
+        return cookieMatch ? cookieMatch[1] : '';
+    }
+
+    // Обработчики кнопок "Добавить в корзину"
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', async function(e) {
+            e.preventDefault();
+            const productId = this.dataset.productId;
+            const button = this;
+
+            button.disabled = true;
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+            try {
+                const response = await fetch(`/shop/add/${productId}/`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': getCSRFToken(),
+                        'Accept': 'application/json',
+                    },
+                    credentials: 'same-origin'
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Обновляем счетчик корзины
+                    document.querySelectorAll('.cart-count').forEach(el => {
+                        el.textContent = data.cart_total;
+                    });
+
+                    // Показываем уведомление
+                    showAlert(data.message, 'success');
+                } else {
+                    showAlert(data.message, 'danger');
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                showAlert('Не удалось добавить товар в корзину', 'danger');
+            } finally {
+                button.disabled = false;
+                button.innerHTML = originalText;
+            }
+        });
+    });
+
+    // Функция показа уведомлений
+    function showAlert(message, type) {
+        const alertDiv = document.createElement('div');
+        alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed top-0 end-0 m-3`;
+        alertDiv.style.zIndex = '1100';
+        alertDiv.innerHTML = `
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+        document.body.appendChild(alertDiv);
+
+        setTimeout(() => {
+            alertDiv.classList.remove('show');
+            setTimeout(() => alertDiv.remove(), 300);
+        }, 3000);
+    }
+});
+</script>
+{% endblock %}
